@@ -4,7 +4,11 @@ readFile = open("./testconv.py")
 writeFile = open("./converted.cpp", "w")
 
 tabNumber = 0
+classDict = {}
 
 # layer/stage 1: modifications for conversion
 if re.findall("class main():", readFile.read()) == None:
-    writeFile.write("int main() {")
+    writeFile.write("int main() {\n")
+    classDict.update(main = 'int')
+    print(classDict)
+    tabNumber += 1
